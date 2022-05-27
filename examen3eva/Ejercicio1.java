@@ -11,11 +11,12 @@ public class Ejercicio1 {
 	
 	/**
 	 * pree:--
-	 * post:
+	 * post:En este metodo recibo la ruta lo paso a un file creo un escaner para poderlo leer le digo que letra quiero buscar,
+	 * 		me saca las lineas en donde se encuentra esa palabra pero no se sacar la palabra en si es lo que me falta.
 	 */
 	private static void leerarchivo(String fichero) {
 		File file= new File(fichero);
-		String letra = "ñ";
+		String letra = "z";
 		int linealetra=0;
 		try {
 			Scanner f =  new Scanner(file);
@@ -23,12 +24,9 @@ public class Ejercicio1 {
 			while(f.hasNextLine()) {
 				String linea= f.nextLine();
 				String[] lineaSep = linea.split(" ");
-				for(int x=0; x<linea.length(); x++) {
-					if(lineaSep[x].contains(letra)) {
-						System.out.println   (  "linea:" +  linealetra + " palabras:" + lineaSep[x]);
-					}
-					linealetra++;
-				}
+				if(linea.contains(letra)) {
+					System.out.println("Linea:" + linealetra + ":" + linea);
+				}linealetra++;
 			}
 			f.close();
 		}catch(FileNotFoundException e) {
